@@ -1,4 +1,4 @@
-package likelion.springsecurityexercise.dto;
+package likelion.springsecurityexercise.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
