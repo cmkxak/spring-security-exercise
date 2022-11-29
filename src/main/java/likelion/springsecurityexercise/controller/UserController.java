@@ -1,8 +1,6 @@
 package likelion.springsecurityexercise.controller;
 
-import likelion.springsecurityexercise.domain.dto.UserDto;
-import likelion.springsecurityexercise.domain.dto.UserJoinRequest;
-import likelion.springsecurityexercise.domain.dto.UserJoinResponse;
+import likelion.springsecurityexercise.domain.dto.*;
 import likelion.springsecurityexercise.dto.Response;
 import likelion.springsecurityexercise.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -21,5 +19,11 @@ public class UserController {
     public Response<UserJoinResponse> join(@RequestBody UserJoinRequest joinRequest){
         UserDto userDto = userService.join(joinRequest);
         return Response.success(new UserJoinResponse(userDto.getUserName(), userDto.getEmail()));
+    }
+
+    @PostMapping("/login")
+    public Response<UserLoginResponse> login(@RequestBody UserLoginRequest loginRequest){
+        String token = userService.login(loginRequest.getUserName(), loginRequest.getPassword());
+        return Response.success(new UserLoginResponse(token));
     }
 }
