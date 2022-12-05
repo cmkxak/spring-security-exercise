@@ -2,7 +2,7 @@ server:
   servlet:
     encoding:
       force-response: true
-  port: 8083
+  port: 8080
 
 spring:
   jpa:
